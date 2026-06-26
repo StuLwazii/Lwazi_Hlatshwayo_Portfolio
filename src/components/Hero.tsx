@@ -26,7 +26,16 @@ export default function Hero() {
               An emerging IT professional specializing in network configuration, resilient infrastructure, and practical AI development. Fueled by a relentless curiosity for how complex systems work, I blend academic foundations in Communication Networks with hands-on AI engineering—including designing custom AI chatbots from scratch. Currently accelerating my skills through an active internship, applying rigorous academic knowledge to real-world systems to build the secure, intelligent infrastructure of tomorrow.
             </p>
 
-
+            <a
+              href="/Lwazi_Hlatshwayo_CV.pdf"
+              download="Lwazi_Hlatshwayo_CV.pdf"
+              className="inline-flex items-center gap-2.5 px-6 py-3 bg-slate-800 border border-slate-600/50 rounded-lg text-slate-200 font-medium text-sm sm:text-base transition-all duration-300 hover:bg-slate-700 hover:border-slate-500 hover:shadow-lg hover:shadow-slate-900/30 hover:-translate-y-0.5 active:translate-y-0 animate-fade-in-up-4"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 3H7a2 2 0 01-2-2V7a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Download CV
+            </a>
           </div>
 
           {/* Right Column - Avatar */}
