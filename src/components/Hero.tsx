@@ -27,7 +27,7 @@ export default function Hero() {
             </p>
 
             <a
-              href="/Lwazi_Hlatshwayo_CV.pdf"
+              href="/Lwazi_Hlatshwayo_CV-1.pdf"
               download="Lwazi_Hlatshwayo_CV.pdf"
               className="inline-flex items-center gap-2.5 px-6 py-3 bg-slate-800 border border-slate-600/50 rounded-lg text-slate-200 font-medium text-sm sm:text-base transition-all duration-300 hover:bg-slate-700 hover:border-slate-500 hover:shadow-lg hover:shadow-slate-900/30 hover:-translate-y-0.5 active:translate-y-0 animate-fade-in-up-4"
             >
