@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Award, FileCheck, ExternalLink, X } from 'lucide-react';
+import { Award, FileCheck, ExternalLink, X, Download } from 'lucide-react';
 
 interface Cert {
   id: number;
@@ -175,9 +175,14 @@ export default function Certifications() {
             )}
 
             {selected.file && (
-              <p className="text-slate-500 text-sm mt-4">
-                Credential file: <span className="text-slate-300">{selected.file}</span>
-              </p>
+              <a
+                href={`/${selected.file}`}
+                download={selected.file}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-600/50 text-slate-200 text-sm font-semibold transition-all duration-300 hover:bg-slate-700 hover:border-slate-500 hover:shadow-lg hover:shadow-slate-900/30 hover:-translate-y-0.5 active:translate-y-0 mt-3"
+              >
+                <Download size={16} />
+                Download Certificate
+              </a>
             )}
           </div>
         </div>
