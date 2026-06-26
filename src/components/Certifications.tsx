@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Award, FileCheck, ExternalLink, X, FileText, Download } from 'lucide-react';
+import { Award, FileCheck, ExternalLink, X } from 'lucide-react';
 
 interface Cert {
   id: number;
@@ -17,7 +17,6 @@ interface VaultCert {
   title: string;
   issuer: string;
   completed: string;
-  pdfFile: string;
   verifyUrl: string;
 }
 
@@ -54,16 +53,16 @@ const certs: Cert[] = [
 ];
 
 const vaultCerts: VaultCert[] = [
-  { title: 'Developing Interpersonal Skills', issuer: 'IBM (Authorized on Coursera)', completed: 'May 29, 2026', pdfFile: '1SC46GVE9QDQ.pdf', verifyUrl: 'https://coursera.org/verify/1SC46GVE9QDQ' },
-  { title: 'Introduction to Personal Branding', issuer: 'University of Virginia (Authorized on Coursera)', completed: 'June 16, 2026', pdfFile: '1TGCMAR0WCWG.pdf', verifyUrl: 'https://coursera.org/verify/1TGCMAR0WCWG' },
-  { title: 'Finding Your Professional Voice: Confidence & Impact', issuer: 'University of London & Royal Central School of Speech and Drama (Authorized on Coursera)', completed: 'June 10, 2026', pdfFile: 'ADH5MZVRR1MR.pdf', verifyUrl: 'https://coursera.org/verify/ADH5MZVRR1MR' },
-  { title: 'Financial Planning for Young Adults', issuer: 'University of Illinois Urbana-Champaign (Authorized on Coursera)', completed: 'June 16, 2026', pdfFile: 'E0DMXFZVCCBP.pdf', verifyUrl: 'https://coursera.org/verify/E0DMXFZVCCBP' },
-  { title: 'Active Listening: Enhancing Communication Skills', issuer: 'Starweaver (Authorized on Coursera)', completed: 'May 27, 2026', pdfFile: 'EGJG8Z0B7OQ7.pdf', verifyUrl: 'https://coursera.org/verify/EGJG8Z0B7OQ7' },
-  { title: 'Work Smarter, Not Harder: Time Management for Personal & Professional Productivity', issuer: 'University of California, Irvine (Authorized on Coursera)', completed: 'May 29, 2026', pdfFile: 'ESDT23I9VVB2.pdf', verifyUrl: 'https://coursera.org/verify/ESDT23I9VVB2' },
-  { title: 'Verbal Communications and Presentation Skills', issuer: 'Starweaver (Authorized on Coursera)', completed: 'May 25, 2026', pdfFile: 'N6187AVJPTDH.pdf', verifyUrl: 'https://coursera.org/verify/N6187AVJPTDH' },
-  { title: 'Leading with Impact: Team Dynamics, Strategy and Ethics', issuer: 'Starweaver (Authorized on Coursera)', completed: 'June 16, 2026', pdfFile: 'NFPYFL5M7VRD.pdf', verifyUrl: 'https://coursera.org/verify/NFPYFL5M7VRD' },
-  { title: 'Write Professional Emails in English', issuer: 'Georgia Institute of Technology (Authorized on Coursera)', completed: 'May 16, 2026', pdfFile: 'QA26JZTGHN4J.pdf', verifyUrl: 'https://coursera.org/verify/QA26JZTGHN4J' },
-  { title: 'Emotional Intelligence in the Workplace', issuer: 'LearnKartS (Authorized on Coursera)', completed: 'June 1, 2026', pdfFile: 'S20V7X2FVQZ4.pdf', verifyUrl: 'https://coursera.org/verify/S20V7X2FVQZ4' },
+  { title: 'Developing Interpersonal Skills', issuer: 'IBM (Authorized on Coursera)', completed: 'May 29, 2026', verifyUrl: 'https://coursera.org/verify/1SC46GVE9QDQ' },
+  { title: 'Introduction to Personal Branding', issuer: 'University of Virginia (Authorized on Coursera)', completed: 'June 16, 2026', verifyUrl: 'https://coursera.org/verify/1TGCMAR0WCWG' },
+  { title: 'Finding Your Professional Voice: Confidence & Impact', issuer: 'University of London & Royal Central School of Speech and Drama (Authorized on Coursera)', completed: 'June 10, 2026', verifyUrl: 'https://coursera.org/verify/ADH5MZVRR1MR' },
+  { title: 'Financial Planning for Young Adults', issuer: 'University of Illinois Urbana-Champaign (Authorized on Coursera)', completed: 'June 16, 2026', verifyUrl: 'https://coursera.org/verify/E0DMXFZVCCBP' },
+  { title: 'Active Listening: Enhancing Communication Skills', issuer: 'Starweaver (Authorized on Coursera)', completed: 'May 27, 2026', verifyUrl: 'https://coursera.org/verify/EGJG8Z0B7OQ7' },
+  { title: 'Work Smarter, Not Harder: Time Management for Personal & Professional Productivity', issuer: 'University of California, Irvine (Authorized on Coursera)', completed: 'May 29, 2026', verifyUrl: 'https://coursera.org/verify/ESDT23I9VVB2' },
+  { title: 'Verbal Communications and Presentation Skills', issuer: 'Starweaver (Authorized on Coursera)', completed: 'May 25, 2026', verifyUrl: 'https://coursera.org/verify/N6187AVJPTDH' },
+  { title: 'Leading with Impact: Team Dynamics, Strategy and Ethics', issuer: 'Starweaver (Authorized on Coursera)', completed: 'June 16, 2026', verifyUrl: 'https://coursera.org/verify/NFPYFL5M7VRD' },
+  { title: 'Write Professional Emails in English', issuer: 'Georgia Institute of Technology (Authorized on Coursera)', completed: 'May 16, 2026', verifyUrl: 'https://coursera.org/verify/QA26JZTGHN4J' },
+  { title: 'Emotional Intelligence in the Workplace', issuer: 'LearnKartS (Authorized on Coursera)', completed: 'June 1, 2026', verifyUrl: 'https://coursera.org/verify/S20V7X2FVQZ4' },
 ];
 
 export default function Certifications() {
@@ -235,14 +234,6 @@ export default function Certifications() {
                         >
                           <ExternalLink size={12} />
                           Verify on Coursera
-                        </a>
-                        <a
-                          href={`/${cert.pdfFile}`}
-                          download={cert.pdfFile}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-600 text-slate-200 text-xs font-semibold hover:border-slate-400 hover:text-slate-100 transition-colors"
-                        >
-                          <Download size={12} />
-                          View Certificate PDF
                         </a>
                       </div>
                     </div>
