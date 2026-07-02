@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Sun, Moon } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -13,6 +13,22 @@ const navLinks = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('theme') as 'dark' | 'light' | null;
+    if (stored) setTheme(stored);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light');
+    } else {
+      root.classList.remove('light');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -79,6 +95,13 @@ export default function Navbar() {
               <Phone size={16} />
               Quick Call
             </a>
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-700/30 text-slate-300 hover:bg-slate-700/50 border border-slate-600/30 transition-colors duration-200"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
           </div>
 
           <button
