@@ -1,7 +1,7 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, User, MessageSquare } from 'lucide-react';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzzgqkgr';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgqpqdn';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
