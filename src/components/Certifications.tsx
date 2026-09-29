@@ -8,6 +8,7 @@ interface Cert {
   issuer: string;
   description: string;
   badge?: string;
+  verifyUrl?: string;
   file?: string;
   status: string;
   skills: string[];
@@ -49,6 +50,16 @@ const certs: Cert[] = [
     description: 'A curated collection of 10 verified interpersonal competency certificates covering professional communication, leadership, time management, and emotional intelligence.',
     status: '10 Verified',
     skills: ['Communication', 'Leadership', 'Time Management', 'Emotional Intelligence'],
+  },
+  {
+    id: 4,
+    icon: FileCheck,
+    title: 'Bits and Bytes of Networking',
+    issuer: 'Coursera',
+    description: 'A verified networking course covering core concepts including protocols, network architecture, and how data moves across connected systems.',
+    verifyUrl: 'https://coursera.org/share/37ed588dc20cc6b5106dab0b5fc3f272',
+    status: 'Verified',
+    skills: ['Networking Fundamentals', 'Protocols', 'Network Architecture', 'Data Transmission'],
   },
 ];
 
@@ -167,9 +178,21 @@ export default function Certifications() {
                 href={selected.badge}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-600 text-white text-sm font-semibold hover:bg-slate-500 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-600 text-white text-sm font-semibold hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-800 transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
                 View Credential Badge
+                <ExternalLink size={16} />
+              </a>
+            )}
+
+            {selected.verifyUrl && (
+              <a
+                href={selected.verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-slate-600 text-white text-sm font-semibold hover:bg-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-800 transition-all hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Verify Credential
                 <ExternalLink size={16} />
               </a>
             )}
